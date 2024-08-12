@@ -14,6 +14,7 @@ import {
 const CardPurchaseSummary = () => {
     const { data, isLoading } = useGetDashboardMetricsQuery();
     const purchaseData = data?.purchaseSummary || [];
+
     const lastDataPoint = purchaseData[purchaseData.length - 1] || null;
 
     return (
@@ -30,9 +31,9 @@ const CardPurchaseSummary = () => {
                         <hr />
                     </div>
 
-                    {/*BODY */}
+                    {/* BODY */}
                     <div>
-                        {/*BODY HEADER */}
+                        {/* BODY HEADER */}
                         <div className="mb-4 mt-7 px-7">
                             <p className="text-xs text-gray-400">Purchased</p>
                             <div className="flex items-center">
@@ -68,7 +69,7 @@ const CardPurchaseSummary = () => {
                         {/* CHART */}
                         <ResponsiveContainer
                             width="100%"
-                            height={200}
+                            height={150}
                             className="p-2"
                         >
                             <AreaChart

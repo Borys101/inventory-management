@@ -13,9 +13,12 @@ const colors = ["#00C49F", "#0088FE", "#FFBB28"];
 
 const CardExpenseSummary = () => {
     const { data: dashboardMetrics, isLoading } = useGetDashboardMetricsQuery();
+
     const expenseSummary = dashboardMetrics?.expenseSummary[0];
+
     const expenseByCategorySummary =
         dashboardMetrics?.expenseByCategorySummary || [];
+
     const expenseSums = expenseByCategorySummary.reduce(
         (acc: ExpenseSums, item: ExpenseByCategorySummary) => {
             const category = item.category + " Expenses";
@@ -38,7 +41,6 @@ const CardExpenseSummary = () => {
         (acc, category: { value: number }) => acc + category.value,
         0
     );
-
     const formattedTotalExpenses = totalExpenses.toFixed(2);
 
     return (
